@@ -13,7 +13,15 @@
 }
 
 ._justify-content-center {
-    justify-content: center;
+    justify-content: center !important;
+}
+
+._justify-content_space-between {
+    justify-content: space-between;
+}
+
+._flex-direction-column {
+    flex-direction: column;
 }
 
 ._align-items-center {
@@ -22,4 +30,8 @@
 
 ._border-radius-25 {
     border-radius: 0.25rem;
+}
+
+._padding-0 {
+    padding: 0 !important;
 }
