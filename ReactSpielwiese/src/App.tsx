@@ -1,5 +1,6 @@
 import './global.css'
 import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-icons/font/bootstrap-icons.css'
 import Header from './layout/Header'
 import Home from './Home'
 import Footer from './layout/Footer'

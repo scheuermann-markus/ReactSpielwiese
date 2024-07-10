@@ -1,0 +1,13 @@
+:root {
+    --hero-image: url(./images/hero-image.jpg);
+    --background-overlay: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+}
+
+.home__hero-section {
+    color: var(--text--white);
+    height: 100vh;
+    padding: 0 10rem;
+    background-image: var(--background-overlay), var(--hero-image);
+    background-position: center;
+    background-size: cover;
+}
