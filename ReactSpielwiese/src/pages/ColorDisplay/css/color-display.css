@@ -1,6 +1,22 @@
 .color-display__output-rectangle {
     height: 300px;
     width: 500px;
+    margin: 1rem 0 0 auto;
     border: 1px solid black;
     border-radius: 0.25rem;
+    background: linear-gradient(to top right, pink, mediumvioletred);
 }
+
+.user-color-input__container {
+    margin: auto 3rem;
+}
+
+.user-color-input__input {
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+}
+
+    .user-color-input__input:focus {
+        outline: none;
+    }
+

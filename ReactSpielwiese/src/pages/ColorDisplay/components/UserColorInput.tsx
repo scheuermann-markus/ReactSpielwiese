@@ -5,7 +5,7 @@ interface Props {
 }
 
 function UserColorInput(props: Props) {
-    const [activeColor, setActiveColor] = useState("white");
+    const [activeColor, setActiveColor] = useState("");
 
     const HandleChange = (e: any) => {
         const { value } = e.target;
@@ -15,13 +15,18 @@ function UserColorInput(props: Props) {
     }
 
     return (
-        <input
-            id="input"
-            type="text"
-            aria-label="input"
-            onChange={HandleChange}
-            value={activeColor}
-        />
+        <div className="user-color-input__container">
+            <input
+                id="input"
+                className="user-color-input__input"
+                type="text"
+                aria-label="input"
+                onChange={HandleChange}
+                value={activeColor}
+                placeholder="linear-gradient(to top right, pink, mediumvioletred)"
+            />
+            <span className="_secondary-text">* type in your color</span>
+        </div>
     );
 }
 

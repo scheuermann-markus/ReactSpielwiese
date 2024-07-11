@@ -23,7 +23,7 @@ function Home() {
                 <div />
             </section>
 
-            <section>
+            <section className="home__section _background-white">
                 <ColorDisplay />
             </section>
         </>

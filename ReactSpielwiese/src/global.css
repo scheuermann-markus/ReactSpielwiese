@@ -3,6 +3,10 @@
     --text--white: #efebdc;
 }
 
+._secondary-text {
+    color: grey;
+}
+
 ._grid {
     display: grid;
 }
@@ -24,6 +28,10 @@
     flex-direction: column;
 }
 
+._grid_template-columns-1-1 {
+    grid-template-columns: 1fr 1fr;
+}
+
 ._align-items-center {
     align-items: center
 }
@@ -34,4 +42,12 @@
 
 ._padding-0 {
     padding: 0 !important;
+}
+
+._text-align_center {
+    text-align: center;
+}
+
+._background-white {
+    background-color: var(--text--white);
 }
