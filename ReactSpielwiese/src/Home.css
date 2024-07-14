@@ -16,3 +16,47 @@
     padding: 0 10rem;
 }
 
+.hero-section__text-wrapper {
+    margin: auto 0;
+}
+
+.hero-section__cards-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 25px;
+    row-gap: 15px;
+    justify-content: right;
+    align-content: center;
+}
+
+
+.hero-section__card {
+    height: 230px;
+    border-radius: 10px;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.4s;
+}
+
+.hero-section__card:hover {
+    transform: translateY(-8px);
+    cursor: pointer;
+}
+
+.hero-section__card--1 {
+    background-image: url(./images/simon-game.png);
+}
+
+.hero-section__card--2 {
+    background-image: url(./images/bild-platzhalter.png);
+}
+
+.hero-section__card--3 {
+    background-image: url(./images/bild-platzhalter.png);
+}
+
+.hero-section__card--4 {
+    background-image: url(./images/bild-platzhalter.png);
+}
+

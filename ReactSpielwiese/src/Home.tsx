@@ -1,6 +1,7 @@
 import ColorDisplay from './pages/ColorDisplay'
 import Header from './layout/Header'
 import './home.css'
+import { Link } from 'react-router-dom';
 
 function Home() {
 
@@ -12,13 +13,21 @@ function Home() {
         <>
             <section className="home__hero-section _flex _flex-direction-column _justify-content_space-between">
                 <Header />
-                <div className="">
-                    <h1>React Playground</h1>
-                    <p>This is a React website where I test and store various concepts.</p>
-                    <button className="btn btn-primary _flex" onClick={OpenGitHubInNewTab}>
-                        <i className="bi bi-github"></i>
-                        View Code on GitHub
-                    </button>
+                <div className="_grid _grid_template-columns-1-1">
+                    <div className="hero-section__text-wrapper">
+                        <h1>React Playground</h1>
+                        <p>This is a React website where I test and store various concepts.</p>
+                        <button className="btn btn-primary _flex" onClick={OpenGitHubInNewTab}>
+                            <i className="bi bi-github"></i>
+                            View Code on GitHub
+                        </button>
+                    </div>
+                    <div className="hero-section__cards-container">
+                        <Link to="/" as="div" className="hero-section__card hero-section__card--1"></Link>
+                        <Link to="/" as="div" className="hero-section__card hero-section__card--2"></Link>
+                        <Link to="/" as="div" className="hero-section__card hero-section__card--3"></Link>
+                        <Link to="/" as="div" className="hero-section__card hero-section__card--4"></Link>
+                    </div>
                 </div>
                 <div />
             </section>
