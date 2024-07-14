@@ -1,4 +1,4 @@
-import ColorDisplay from './pages/ColorDisplay'
+import ColorDisplay from './projects/ColorDisplay'
 import Header from './layout/Header'
 import './home.css'
 import { Link } from 'react-router-dom';
