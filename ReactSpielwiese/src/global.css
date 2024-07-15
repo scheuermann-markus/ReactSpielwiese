@@ -36,6 +36,10 @@
     align-items: center
 }
 
+._align-content-center {
+    align-content: center
+}
+
 ._border-radius-25 {
     border-radius: 0.25rem;
 }
@@ -50,4 +54,8 @@
 
 ._background-white {
     background-color: var(--text--white);
+}
+
+._m-10rem {
+    margin: 0 10rem;
 }

@@ -11,8 +11,7 @@ function Home() {
 
     return (
         <>
-            <section className="home__hero-section _flex _flex-direction-column _justify-content_space-between">
-                <Header />
+            <section className="home__hero-section _align-content-center">
                 <div className="_grid _grid_template-columns-1-1">
                     <div className="hero-section__text-wrapper">
                         <h1>React Playground</h1>
@@ -29,7 +28,6 @@ function Home() {
                         <Link to="/" as="div" className="hero-section__card hero-section__card--4"></Link>
                     </div>
                 </div>
-                <div />
             </section>
 
             <section className="home__section _background-white">
