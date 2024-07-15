@@ -23,7 +23,7 @@ function Home() {
                         </button>
                     </div>
                     <div className="hero-section__cards-container">
-                        <Link to="/" as="div" className="hero-section__card hero-section__card--1"></Link>
+                        <Link to="/simongame" as="div" className="hero-section__card hero-section__card--1"></Link>
                         <Link to="/" as="div" className="hero-section__card hero-section__card--2"></Link>
                         <Link to="/" as="div" className="hero-section__card hero-section__card--3"></Link>
                         <Link to="/" as="div" className="hero-section__card hero-section__card--4"></Link>

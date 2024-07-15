@@ -13,7 +13,7 @@ function Header() {
                                 Home
                             </a>
                             <a className="nav-link" href="#">Seite 2</a>
-                            <a className="nav-link" href="#">Simon Game</a>
+                            <a className="nav-link" href="/simongame">Simon Game</a>
                         </div>
                     </div>
                 </div>
