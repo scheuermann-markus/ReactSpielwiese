@@ -1,4 +1,5 @@
 .simon-game {
+    overflow: hidden; /* verhindert, dass ein drehen der Buttons eine Scrollbar erscheint */
     height: 100vh;
     background-color: #3f4e4f;
     text-align: center;
@@ -40,6 +41,10 @@
     font-size: 1rem;
     padding: 6px;
     display: inline;
+}
+
+.simon-game__lives-wrapper {
+    max-width: 100px;
 }
 
 #simon-h2:hover {

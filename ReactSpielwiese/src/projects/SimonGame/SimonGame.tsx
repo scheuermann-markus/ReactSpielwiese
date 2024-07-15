@@ -16,7 +16,6 @@ var _buttonColors: string[] = ["green", "red", "yellow", "blue"];
 var _gamePattern: string[] = [];
 var _userPattern: string[] = [];
 var _lives: number = 0;
-var _rotatingButtons: boolean = false;
 
 const GameOverSound = new Audio(wrongSound);
 const BlueButtonSound = new Audio(blueSound);
@@ -28,12 +27,14 @@ const YellowButtonSound = new Audio(yellowSound);
 
 
 export default function SimonGame() {
+    const [_gameActive, setGameActive] = useState<boolean>(false);
     const [_muted, setMuted] = useState<boolean>(true);
+    const [_advancedMode, setAdvancedMode] = useState<boolean>(false);
 
     const GameStart = (): void => {
-        SwitchAdvancedMode(); // um den Wert initial zu setzen. TODO: bessere Lösung finden
-
         if (_level === 0) {
+
+            setGameActive(true);
             setTimeout(function () {
                 NextSequence();
             }, 100);
@@ -41,7 +42,7 @@ export default function SimonGame() {
     }
 
     const RotateButtons = () => {
-        if (_rotatingButtons === true && _level > 1) {
+        if (_advancedMode === true && _level > 1) {
             var x = 90 * (_level - 1);
             $(".simon-game-area").css("transform", "rotate(" + x + "deg)");
         }
@@ -113,6 +114,7 @@ export default function SimonGame() {
                 _userPattern = [];
                 _gamePattern = [];
                 _level = 0;
+                setGameActive(false);
 
                 $("._lives-h2").text("0");
                 $(".simon-game-area").css("transform", "rotate(0deg)");
@@ -152,7 +154,7 @@ export default function SimonGame() {
         let element = document.getElementById("simon-h2");
 
         if (element != null) {
-            element.textContent = "_level " + _level;
+            element.textContent = "level " + _level;
         }
 
         // Choose random button
@@ -179,13 +181,19 @@ export default function SimonGame() {
         }
     }
 
-    const SwitchAdvancedMode = () => {
-        if (document.getElementsByClassName("checkbox").checked === false) {
-            document.getElementsByClassName("checkbox").checked = true;
-            _rotatingButtons = true;
-        } else {
-            document.getElementsByClassName("checkbox").checked = false;
-            _rotatingButtons = false;
+    const SwitchAdvancedMode = (): void => {
+        if (_level != 0)
+            return;
+
+        let checkbox = document.getElementsByClassName("checkbox") as HTMLInputElement;
+
+        if (checkbox.checked === undefined || checkbox.checked === false) {
+            checkbox.checked = true;
+            setAdvancedMode(true);
+        }
+        else {
+            checkbox.checked = false;
+            setAdvancedMode(false);
         }
     }
 
@@ -205,18 +213,18 @@ export default function SimonGame() {
                         <div className="_flex _justify-content-center">
                             <h4 className="simon-game__secondary-heading">Mute: </h4>
                             <h4 onClick={ToggleMuted} className="simon-game__mic-icon _align-content-center">
-                                {_muted ? <i className="bi bi-mic-mute-fill"></i> : <i className="bi bi-mic-fill"></i>}
+                                {_muted ? <i className="bi bi-mic-mute-fill" title="unmute"></i> : <i className="bi bi-mic-fill" title="mute"></i>}
                             </h4>
                         </div>
                         {/** Set number of Lives */}
                         <div className="simon-game__lives">
                             <h4 className="simon-game__secondary-heading">Lives</h4>
-                            <div className="_flex">
+                            <div className="_flex _justify-content-center">
                                 <button onClick={ReduceLive} className="simon-game__lives-btn">
                                     -
                                 </button>
-                                <div className="col col-live-amount">
-                                    <h2 className="lives-h2">{_lives}</h2>
+                                <div className="col col-live-amount simon-game__lives-wrapper">
+                                    <h4 className="lives-h2">{_lives}</h4>
                                 </div>
                                 <button onClick={AddLive} className="simon-game__lives-btn">
                                     +
@@ -255,7 +263,7 @@ export default function SimonGame() {
                     <div className="simon-switcher">
                         <h4>Advanced Mode</h4>
                         <label className="rocker">
-                            <input type="checkbox" onClick={SwitchAdvancedMode} />
+                            <input type="checkbox" onClick={SwitchAdvancedMode} disabled={_gameActive} />
                             <span className="switch-left">On</span>
                             <span className="switch-right">Off</span>
                         </label>
