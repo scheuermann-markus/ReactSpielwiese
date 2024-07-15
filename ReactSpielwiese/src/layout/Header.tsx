@@ -8,7 +8,7 @@ function Header() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav">
-                            <a className="nav-link active _flex" aria-current="page" href="#">
+                            <a className="nav-link active _flex" aria-current="page" href="/">
                                 <i className="bi bi-house-door-fill"></i>
                                 Home
                             </a>

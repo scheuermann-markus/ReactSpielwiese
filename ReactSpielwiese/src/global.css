@@ -24,6 +24,10 @@
     justify-content: space-between;
 }
 
+._justify-content_space-evenly {
+    justify-content: space-evenly;
+}
+
 ._flex-direction-column {
     flex-direction: column;
 }

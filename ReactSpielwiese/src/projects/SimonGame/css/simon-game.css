@@ -1,7 +1,21 @@
 .simon-game {
+    height: 100vh;
     background-color: #3f4e4f;
-    padding: 30px 8%;
     text-align: center;
+    padding: 0 10rem;
+}
+
+.simon-game__secondary-heading {
+    font-family: Pattaya, serif;
+    font-size: 2.3rem;
+    color: #dcd7c9;
+    text-shadow: 4px 4px #2c3639;
+}
+
+.simon-game__mic-icon {
+    color: var(--text--white);
+    text-shadow: 4px 4px #2c3639;
+    cursor: pointer;
 }
 
 .simon-grid {
@@ -85,15 +99,10 @@
 }
 
 /* Number of Lives */
-.simon-lives {
-    display: grid;
-    align-content: center;
-    justify-content: center;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-auto-columns: auto;
+.simon-game__lives {
 }
 
-    .simon-lives h3 {
+    .simon-game__lives h3 {
         font-family: PressStart2P, sans-serif;
         color: #dcd7c9;
         font-size: 1rem;
@@ -107,23 +116,6 @@
     display: inline-block;
     padding: 6px;
 }
-
-.col-subtract-live {
-    display: grid;
-    align-content: center;
-    justify-content: right;
-}
-
-.col-add-live {
-    display: grid;
-    align-content: center;
-    justify-content: left;
-}
-
-    .col-add-live:hover,
-    .col-subtract-live:hover {
-        cursor: pointer;
-    }
 
 .col-live-amount {
     display: grid;
@@ -140,7 +132,7 @@
     font-size: 2rem;
 }
 
-.plus-minus-btn {
+.simon-game__lives-btn {
     font-family: PressStart2P, sans-serif;
     font-size: 3rem;
     color: #dcd7c9;
