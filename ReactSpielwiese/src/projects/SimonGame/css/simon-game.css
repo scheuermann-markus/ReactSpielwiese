@@ -156,13 +156,13 @@
 
 
 /* Toggle Switch */
-.simon-switcher {
+.simon-game__switcher__container {
     display: grid;
     align-items: center;
     justify-content: center;
 }
 
-    .simon-switcher h4 {
+    .simon-game__switcher__container h4 {
         font-family: Pattaya, serif;
         font-size: 2.3rem;
         color: #dcd7c9;

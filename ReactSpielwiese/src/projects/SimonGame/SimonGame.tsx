@@ -9,27 +9,25 @@ import Header from "../../layout/Header";
 import { useState } from "react";
 
 
-
-// Variables
-var _level: number = 0;
 var _buttonColors: string[] = ["green", "red", "yellow", "blue"];
 var _gamePattern: string[] = [];
 var _userPattern: string[] = [];
-var _lives: number = 0;
-
-const GameOverSound = new Audio(wrongSound);
-const BlueButtonSound = new Audio(blueSound);
-const GreenButtonSound = new Audio(greenSound);
-const RedButtonSound = new Audio(redSound);
-const YellowButtonSound = new Audio(yellowSound);
-
-
-
 
 export default function SimonGame() {
+    // Variables
+    const [_level, setLevel] = useState<number>(0);
+    const [_lives, setLives] = useState<number>(0);
     const [_gameActive, setGameActive] = useState<boolean>(false);
     const [_muted, setMuted] = useState<boolean>(true);
     const [_advancedMode, setAdvancedMode] = useState<boolean>(false);
+
+    // Sound variables
+    const GameOverSound = new Audio(wrongSound);
+    const BlueButtonSound = new Audio(blueSound);
+    const GreenButtonSound = new Audio(greenSound);
+    const RedButtonSound = new Audio(redSound);
+    const YellowButtonSound = new Audio(yellowSound);
+
 
     const GameStart = (): void => {
         if (_level === 0) {
@@ -41,7 +39,7 @@ export default function SimonGame() {
         }
     }
 
-    const RotateButtons = () => {
+    const RotateButtons = (): void => {
         if (_advancedMode === true && _level > 1) {
             var x = 90 * (_level - 1);
             $(".simon-game-area").css("transform", "rotate(" + x + "deg)");
@@ -49,14 +47,14 @@ export default function SimonGame() {
     }
 
     // Animation when randomly selected Button is shown to the user
-    const ButtonShowAnimation = (buttonId: string): any => {
+    const ButtonShowAnimation = (buttonId: string): void => {
         $("#" + buttonId)
             .fadeOut(100)
             .fadeIn(100);
     }
 
     // Animation when User clicks on a Button
-    const ButtonPressAnimation = (buttonId: string): any => {
+    const ButtonPressAnimation = (buttonId: string): void => {
         $("#" + buttonId).addClass("pressed");
         setTimeout(function () {
             $("#" + buttonId).removeClass("pressed");
@@ -66,14 +64,14 @@ export default function SimonGame() {
     // Set Amout of Lives
     const AddLive = (): void => {
         if (_lives < 9 && _level === 0) {
-            _lives++;
+            setLives(_lives + 1);
             $(".lives-h2").text(_lives);
         }
     }
 
     const ReduceLive = (): void => {
         if (_lives > 0) {
-            _lives--;
+            setLives(_lives - 1);
             $(".lives-h2").text(_lives);
         }
     }
@@ -113,7 +111,7 @@ export default function SimonGame() {
 
                 _userPattern = [];
                 _gamePattern = [];
-                _level = 0;
+                setLevel(0);
                 setGameActive(false);
 
                 $("._lives-h2").text("0");
@@ -150,7 +148,7 @@ export default function SimonGame() {
 
     const NextSequence = (): void => {
         // Update _level
-        _level++;
+        setLevel(_level + 1);
         let element = document.getElementById("simon-h2");
 
         if (element != null) {
@@ -251,10 +249,10 @@ export default function SimonGame() {
                         </div>
                     </div>
                     {/** Simon Advanced Switcher */}
-                    <div className="simon-switcher">
+                    <div className="simon-game__switcher__container">
                         <h4>Advanced Mode</h4>
                         <label className="rocker">
-                            <input type="checkbox" onClick={SwitchAdvancedMode} disabled={_gameActive} />
+                            <input type="checkbox" className="simon-game__switcher" onClick={SwitchAdvancedMode} disabled={_gameActive} />
                             <span className="switch-left">On</span>
                             <span className="switch-right">Off</span>
                         </label>
