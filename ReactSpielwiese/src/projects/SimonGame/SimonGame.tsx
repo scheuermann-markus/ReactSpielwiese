@@ -185,16 +185,7 @@ export default function SimonGame() {
         if (_level != 0)
             return;
 
-        let checkbox = document.getElementsByClassName("checkbox") as HTMLInputElement;
-
-        if (checkbox.checked === undefined || checkbox.checked === false) {
-            checkbox.checked = true;
-            setAdvancedMode(true);
-        }
-        else {
-            checkbox.checked = false;
-            setAdvancedMode(false);
-        }
+        setAdvancedMode(!_advancedMode);
     }
 
     return (
