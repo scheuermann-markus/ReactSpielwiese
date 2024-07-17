@@ -14,6 +14,7 @@ function Header() {
                             </a>
                             <a className="nav-link" href="#">Seite 2</a>
                             <a className="nav-link" href="/simongame">Simon Game</a>
+                            <a className="nav-link" href="/tictactoe">TicTacToe</a>
                         </div>
                     </div>
                 </div>

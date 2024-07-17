@@ -4,8 +4,9 @@ import 'bootstrap-icons/font/bootstrap-icons.css'
 import Home from './Home'
 import Footer from './layout/Footer'
 import { Routes, Route, Navigate } from 'react-router-dom'
-import SimonGame from './projects/SimonGame/SimonGame'
 import Header from './layout/Header'
+import SimonGame from './projects/SimonGame/SimonGame'
+import TicTacToe from './projects/TicTacToe/TicTacToe'
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
                 <Route path="*" element={<Navigate to="/" />} /> {/* default redirect to Home */}
                 <Route path="/" element={<Home />} />
                 <Route path="/simongame" element={<SimonGame />} />
+                <Route path="/tictactoe" element={<TicTacToe />} />
             </Routes>
 
             <Footer />
