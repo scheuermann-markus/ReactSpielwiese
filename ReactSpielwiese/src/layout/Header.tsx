@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Header() {
     return (
         <>
@@ -6,14 +8,20 @@ function Header() {
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <div className="navbar-nav">
-                            <a className="nav-link active _flex" aria-current="page" href="/">
-                                <i className="bi bi-house-door-fill"></i>
-                                Home
-                            </a>
-                            <a className="nav-link" href="/simongame">Simon Game</a>
-                            <a className="nav-link" href="/tictactoe">TicTacToe</a>
+                            <li className="nav-item">
+                                <Link to="/" className="nav-link active _flex" aria-current="page">
+                                    <i className="bi bi-house-door-fill"></i>
+                                    Home
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/simongame" className="nav-link">Simon Game</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link to="/tictactoe" className="nav-link" >TicTacToe</Link>
+                            </li>
                         </div>
                     </div>
                 </div>
