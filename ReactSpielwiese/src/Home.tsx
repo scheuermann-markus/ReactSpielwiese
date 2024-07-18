@@ -2,6 +2,7 @@ import ColorDisplay from './projects/ColorDisplay'
 import Header from './layout/Header'
 import './home.css'
 import { Link } from 'react-router-dom';
+import Footer from './layout/Footer';
 
 function Home() {
 
@@ -14,7 +15,7 @@ function Home() {
             <section className="home__hero-section _align-content-center">
                 <div className="_grid _grid_template-columns-1-1">
                     <div className="hero-section__text-wrapper">
-                        <h1>React Playground</h1>
+                        <h1 className="hero-section__heading">React Playground</h1>
                         <p>This is a React website where I test and store various concepts.</p>
                         <button className="btn btn-primary _flex" onClick={OpenGitHubInNewTab}>
                             <i className="bi bi-github"></i>

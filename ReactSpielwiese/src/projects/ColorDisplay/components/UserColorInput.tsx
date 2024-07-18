@@ -23,7 +23,7 @@ function UserColorInput(props: Props) {
                 aria-label="input"
                 onChange={HandleChange}
                 value={activeColor}
-                placeholder="linear-gradient(to top right, pink, mediumvioletred)"
+                placeholder="linear-gradient(to top right, #B67772, #101E3E);"
             />
             <span className="_secondary-text">* type in your color</span>
         </div>

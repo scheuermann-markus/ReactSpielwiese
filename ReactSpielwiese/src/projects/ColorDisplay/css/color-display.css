@@ -4,7 +4,11 @@
     margin: 1rem 0 0 auto;
     border: 1px solid black;
     border-radius: 0.25rem;
-    background: linear-gradient(to top right, pink, mediumvioletred);
+    background: linear-gradient(to top right, #B67772, #101E3E);
+}
+
+.color-display__heading {
+    margin-bottom: 2rem;
 }
 
 .user-color-input__container {

@@ -200,7 +200,7 @@ export default function SimonGame() {
                     <div className="_flex _flex-direction-column _justify-content_space-evenly">
                         {/** Mute Sound */}
                         <div className="_flex _justify-content-center">
-                            <h4 className="simon-game__secondary-heading">Mute: </h4>
+                            <h4 className="simon-game__secondary-heading">Sound: </h4>
                             <h4 onClick={ToggleMuted} className="simon-game__mic-icon _align-content-center">
                                 {_muted ? <i className="bi bi-mic-mute-fill" title="unmute"></i> : <i className="bi bi-mic-fill" title="mute"></i>}
                             </h4>

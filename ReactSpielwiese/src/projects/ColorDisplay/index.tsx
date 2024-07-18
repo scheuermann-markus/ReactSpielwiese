@@ -11,7 +11,7 @@ function ColorDisplayIndex() {
 
     return (
         <>
-            <h2 className="_text-align_center">Color Input</h2>
+            <h2 className="_text-align_center color-display__heading">Color Input</h2>
             <div className="_grid _grid_template-columns-1-1">
                 <UserColorInput changeColor={ChangeColor} />
                 <div className="color-display__output-rectangle" style={{ background: `${userColor}` }} />
