@@ -1,20 +1,15 @@
 import { useState } from 'react';
 import './css/tictactoe.css'
 import Field from './components/Field';
+import { Game, Player } from './Models/Enums';
 
-
-enum Player {
-    None,
-    Player1,
-    Player2
-}
+// Modul-Scope
+let _patternPlayer1: Array<number> = [];
+let _patternPlayer2: Array<number> = [];
 
 export default function index() {
-    const [_activeGame, setActiveGame] = useState<boolean>(false);
-
+    const [_gameState, setGameState] = useState<Game>(Game.None);
     const [_activePlayer, setActivePlayer] = useState<Player>(Player.None);
-    let _patternPlayer1: Array<number> = [];
-    let _patternPlayer2: Array<number> = [];
 
     let _winPatterns: Array<Array<number>> = [
         [1, 2, 3],
@@ -29,9 +24,14 @@ export default function index() {
 
     const GameStart = (): void => {
         // Alle Werte auf Anfang setzen
+        setGameState(Game.Running);
+        setActivePlayer(Player.Player1);
         _patternPlayer1 = [];
         _patternPlayer2 = [];
-        setActivePlayer(Player.Player1);
+
+        var winnerHeader = document.querySelector(".tictactoe__winner") as HTMLElement;
+        if (winnerHeader != null)
+            winnerHeader.style.display = "none";
     }
 
     const UserSelectField = (fieldId: number): void => {
@@ -44,6 +44,7 @@ export default function index() {
             if (hasWon) {
                 // Spieler 1 hat gewonnen
                 GameEnd(Player.Player1);
+                return;
             }
         }
         else {
@@ -55,7 +56,13 @@ export default function index() {
             if (hasWon) {
                 // Spieler 2 hat gewonnen
                 GameEnd(Player.Player2);
+                return;
             }
+        }
+
+        // Spiel beenden, wenn alle Felder ausgewählt sind
+        if ((_patternPlayer1.length + _patternPlayer2.length) === 9) {
+            GameEnd(Player.None);
         }
 
         ChangeActivePlayer();
@@ -80,15 +87,41 @@ export default function index() {
         }
     }
 
-    const GameEnd = (winner: Player): void => {
+    const StoppGame = (): void => {
+        setGameState(Game.None);
+    }
 
+    const GameEnd = (winner: Player): void => {
+        setGameState(Game.Ended);
+
+        var winnerHeader = document.querySelector(".tictactoe__winner") as HTMLElement;
+        if (winnerHeader != null) {
+            winnerHeader.style.display = "unset";
+
+            switch (winner) {
+                case Player.None: {
+                    winnerHeader.innerHTML = "Unentschieden!";
+                    break;
+                }
+                case Player.Player1: {
+                    winnerHeader.innerHTML = "Spieler 1 hat gewonnen!";
+                    break;
+                }
+                case Player.Player2: {
+                    winnerHeader.innerHTML = "Spieler 2 hat gewonnen!";
+                    break;
+                }
+            }
+        }
     }
 
     const FIELDS = [];
     for (let i = 1; i <= 9; i++) {
         FIELDS.push(<Field key={i}
             id={i}
-            onFieldClick={UserSelectField}
+            activePlayer={_activePlayer}
+            runningGame={_gameState}
+            userSelectField={UserSelectField}
         />);
     }
 
@@ -97,8 +130,25 @@ export default function index() {
 
             <div className="tictactoe__gitter">
 
+                <div className="tictactoe__winner" />
+
+                <div className="tictactoe__heading _text-align_center">
+                    {_activePlayer === Player.Player1 && <h4>Spieler 1 ist am Zug.</h4>}
+                    {_activePlayer === Player.Player2 && <h4>Spieler 2 ist am Zug.</h4>}
+                </div>
+
                 {FIELDS}
 
+            </div>
+
+            <div className="_text-align_center">
+                {
+                    _gameState === Game.Running ? (
+                        <i className="bi bi-stop-fill btn btn-danger tictactoe__button" title="stop" onClick={StoppGame}></i>
+                    ) : (
+                        <i className="bi bi-play-fill btn btn-primary tictactoe__button" title="Game start" onClick={GameStart}></i>
+                    )
+                }
             </div>
         </div>
     );

@@ -5,9 +5,10 @@
 }
 
 .tictactoe__gitter {
+    position: relative;
     width: 400px;
     height: 400px;
-    margin: 0 auto;
+    margin: 7rem auto 2rem;
     padding: 0.5rem;
     border: 2px solid #212529;
     border-radius: 0.25rem;
@@ -19,16 +20,65 @@
         "area7 area8 area9";
 }
 
+.tictactoe__heading {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+}
+
 .tictactoe__field {
+    width: 120px;
+    height: 120px;
     border: 1px solid #212529;
     border-radius: 0.25rem;
     align-content: center;
     text-align: center;
     background-color: #F1EEDC;
+    cursor: pointer;
     transition: all 0.2s;
 }
 
+.tictactoe__field--locked {
+    background-color: #E5DDC5;
+    cursor: unset;
+}
+
 .tictactoe__field:hover {
-    cursor: pointer;
     background-color: #E5DDC5;
 }
+
+.tictactoe__button {
+    border-radius: 50%;
+    font-size: 2rem;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+}
+
+.tictactoe__winner {
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: peru;
+    font-size: 2rem;
+    text-align: center; 
+    font-style: italic;
+    font-weight: bold; 
+    letter-spacing: 0.1rem;
+    width: 100%;
+}
+
+    .tictactoe__winner:before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        height: 160px;
+        width: 80%;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+        filter: blur(20px);
+    }
