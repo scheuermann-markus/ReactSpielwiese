@@ -144,7 +144,7 @@ export default function index() {
             <div className="_text-align_center">
                 {
                     _gameState === Game.Running ? (
-                        <i className="bi bi-stop-fill btn btn-danger tictactoe__button" title="stop" onClick={StoppGame}></i>
+                        <i className="bi bi-stop-fill btn btn-danger tictactoe__button" title="Stop" onClick={StoppGame}></i>
                     ) : (
                         <i className="bi bi-play-fill btn btn-primary tictactoe__button" title="Game start" onClick={GameStart}></i>
                     )
