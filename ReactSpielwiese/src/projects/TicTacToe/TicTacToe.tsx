@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './css/tictactoe.css'
 import Field from './components/Field';
 import { Game, Player } from './Models/Enums';
+import FadeIn from '../../Components/FadeIn';
 
 // Modul-Scope
 let _patternPlayer1: Array<number> = [];
@@ -127,29 +128,30 @@ export default function index() {
 
     return (
         <div className="tictactoe _align-content-center">
+            <FadeIn>
+                <div className="tictactoe__gitter">
 
-            <div className="tictactoe__gitter">
+                    <div className="tictactoe__winner" />
 
-                <div className="tictactoe__winner" />
+                    <div className="tictactoe__heading _text-align_center">
+                        {_activePlayer === Player.Player1 && <h4>Spieler 1 ist am Zug.</h4>}
+                        {_activePlayer === Player.Player2 && <h4>Spieler 2 ist am Zug.</h4>}
+                    </div>
 
-                <div className="tictactoe__heading _text-align_center">
-                    {_activePlayer === Player.Player1 && <h4>Spieler 1 ist am Zug.</h4>}
-                    {_activePlayer === Player.Player2 && <h4>Spieler 2 ist am Zug.</h4>}
+                    {FIELDS}
+
                 </div>
 
-                {FIELDS}
-
-            </div>
-
-            <div className="_text-align_center">
-                {
-                    _gameState === Game.Running ? (
-                        <i className="bi bi-stop-fill btn btn-danger tictactoe__button" title="Stop" onClick={StoppGame}></i>
-                    ) : (
-                        <i className="bi bi-play-fill btn btn-primary tictactoe__button" title="Game start" onClick={GameStart}></i>
-                    )
-                }
-            </div>
+                <div className="_text-align_center">
+                    {
+                        _gameState === Game.Running ? (
+                            <i className="bi bi-stop-fill btn btn-danger tictactoe__button" title="Stop" onClick={StoppGame}></i>
+                        ) : (
+                            <i className="bi bi-play-fill btn btn-primary tictactoe__button" title="Game start" onClick={GameStart}></i>
+                        )
+                    }
+                </div>
+            </FadeIn>
         </div>
     );
 }

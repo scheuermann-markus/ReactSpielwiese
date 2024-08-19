@@ -7,6 +7,7 @@ import redSound from "./sounds/red.mp3";
 import yellowSound from "./sounds/yellow.mp3";
 import Header from "../../layout/Header";
 import { useState } from "react";
+import FadeIn from "../../Components/FadeIn";
 
 
 var _buttonColors: string[] = ["green", "red", "yellow", "blue"];
@@ -189,75 +190,77 @@ export default function SimonGame() {
     return (
         <>
             <div className="simon-game _align-content-center">
-                {/** Heading Section */}
-                <div className="simon-head">
-                    <h1>Retro Simon Game</h1>
-                    <h2 onClick={GameStart} className="simon-h2" id="simon-h2">
-                        Click Here to Start the Game.
-                    </h2>
-                </div>
-                <div className="simon-grid">
-                    <div className="_flex _flex-direction-column _justify-content_space-evenly">
-                        {/** Mute Sound */}
-                        <div className="_flex _justify-content-center">
-                            <h4 className="simon-game__secondary-heading">Sound: </h4>
-                            <h4 onClick={ToggleMuted} className="simon-game__mic-icon _align-content-center">
-                                {_muted ? <i className="bi bi-mic-mute-fill" title="unmute"></i> : <i className="bi bi-mic-fill" title="mute"></i>}
-                            </h4>
-                        </div>
-                        {/** Set number of Lives */}
-                        <div className="simon-game__lives">
-                            <h4 className="simon-game__secondary-heading">Lives</h4>
+                <FadeIn>
+                    {/** Heading Section */}
+                    <div className="simon-head">
+                        <h1>Retro Simon Game</h1>
+                        <h2 onClick={GameStart} className="simon-h2" id="simon-h2">
+                            Click Here to Start the Game.
+                        </h2>
+                    </div>
+                    <div className="simon-grid">
+                        <div className="_flex _flex-direction-column _justify-content_space-evenly">
+                            {/** Mute Sound */}
                             <div className="_flex _justify-content-center">
-                                <button onClick={ReduceLive} className="simon-game__lives-btn">
-                                    -
-                                </button>
-                                <div className="col col-live-amount simon-game__lives-wrapper">
-                                    <h4 className="lives-h2">{_lives}</h4>
+                                <h4 className="simon-game__secondary-heading">Sound: </h4>
+                                <h4 onClick={ToggleMuted} className="simon-game__mic-icon _align-content-center">
+                                    {_muted ? <i className="bi bi-mic-mute-fill" title="unmute"></i> : <i className="bi bi-mic-fill" title="mute"></i>}
+                                </h4>
+                            </div>
+                            {/** Set number of Lives */}
+                            <div className="simon-game__lives">
+                                <h4 className="simon-game__secondary-heading">Lives</h4>
+                                <div className="_flex _justify-content-center">
+                                    <button onClick={ReduceLive} className="simon-game__lives-btn">
+                                        -
+                                    </button>
+                                    <div className="col col-live-amount simon-game__lives-wrapper">
+                                        <h4 className="lives-h2">{_lives}</h4>
+                                    </div>
+                                    <button onClick={AddLive} className="simon-game__lives-btn">
+                                        +
+                                    </button>
                                 </div>
-                                <button onClick={AddLive} className="simon-game__lives-btn">
-                                    +
-                                </button>
                             </div>
                         </div>
-                    </div>
-                    {/** Game Section */}
-                    <div className="simon-game-area">
-                        <div className="game-div">
-                            <button
-                                onClick={(e) => HandleButtonClick(e.nativeEvent)}
-                                id="green"
-                                className="button green-btn"
-                            ></button>
-                            <button
-                                onClick={(e) => HandleButtonClick(e.nativeEvent)}
-                                id="red"
-                                className="button red-btn"
-                            ></button>
+                        {/** Game Section */}
+                        <div className="simon-game-area">
+                            <div className="game-div">
+                                <button
+                                    onClick={(e) => HandleButtonClick(e.nativeEvent)}
+                                    id="green"
+                                    className="button green-btn"
+                                ></button>
+                                <button
+                                    onClick={(e) => HandleButtonClick(e.nativeEvent)}
+                                    id="red"
+                                    className="button red-btn"
+                                ></button>
+                            </div>
+                            <div className="game-div">
+                                <button
+                                    onClick={(e) => HandleButtonClick(e.nativeEvent)}
+                                    id="yellow"
+                                    className="button yellow-btn"
+                                ></button>
+                                <button
+                                    onClick={(e) => HandleButtonClick(e.nativeEvent)}
+                                    id="blue"
+                                    className="button blue-btn"
+                                ></button>
+                            </div>
                         </div>
-                        <div className="game-div">
-                            <button
-                                onClick={(e) => HandleButtonClick(e.nativeEvent)}
-                                id="yellow"
-                                className="button yellow-btn"
-                            ></button>
-                            <button
-                                onClick={(e) => HandleButtonClick(e.nativeEvent)}
-                                id="blue"
-                                className="button blue-btn"
-                            ></button>
+                        {/** Simon Advanced Switcher */}
+                        <div className="simon-game__switcher__container">
+                            <h4>Advanced Mode</h4>
+                            <label className="rocker">
+                                <input type="checkbox" className="simon-game__switcher" onClick={SwitchAdvancedMode} disabled={_gameActive} />
+                                <span className="switch-left">On</span>
+                                <span className="switch-right">Off</span>
+                            </label>
                         </div>
                     </div>
-                    {/** Simon Advanced Switcher */}
-                    <div className="simon-game__switcher__container">
-                        <h4>Advanced Mode</h4>
-                        <label className="rocker">
-                            <input type="checkbox" className="simon-game__switcher" onClick={SwitchAdvancedMode} disabled={_gameActive} />
-                            <span className="switch-left">On</span>
-                            <span className="switch-right">Off</span>
-                        </label>
-                    </div>
-                </div>
+                </FadeIn>
             </div>
         </>
     );
