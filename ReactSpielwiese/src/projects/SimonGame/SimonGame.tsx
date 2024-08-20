@@ -7,7 +7,7 @@ import redSound from "./sounds/red.mp3";
 import yellowSound from "./sounds/yellow.mp3";
 import Header from "../../layout/Header";
 import { useState } from "react";
-import FadeIn from "../../Components/FadeIn";
+import FadeIn from "../../components/FadeIn";
 
 
 var _buttonColors: string[] = ["green", "red", "yellow", "blue"];
