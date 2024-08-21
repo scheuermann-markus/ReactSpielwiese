@@ -10,7 +10,7 @@ function Header() {
                         MARKUS SCHEUERMANN
                     </NavBrand>
                     <NavSocial>
-                        <a href="https://github.com/scheuermann-markus/ReactSpielwiese" target="_blank">
+                        <a href="https://github.com/scheuermann-markus/ReactSpielwiese" target="_blank" title="GitHub Repository">
                             <i className="bi bi-github"></i>
                         </a>
                     </NavSocial>

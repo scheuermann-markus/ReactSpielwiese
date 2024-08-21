@@ -1,4 +1,4 @@
-import React, { ReactNode, Children, isValidElement } from 'react';
+import React, { ReactNode, Children, isValidElement, useState } from 'react';
 import './top-nav.css';
 
 
@@ -13,6 +13,11 @@ interface TopNavProps {
 }
 
 export default function TopNav({ theme = Theme.Lumos, children }: TopNavProps) {
+    const [activeItem, setActiveItem] = useState<number>(0);
+    const HandleNavItemClick = (index: number) => {
+        setActiveItem(index);
+    };
+
     const navBrand = Children.toArray(children).find(child => {
         return isValidElement(child) && child.type === NavBrand;
     });
@@ -36,7 +41,13 @@ export default function TopNav({ theme = Theme.Lumos, children }: TopNavProps) {
             </div>
 
             <div className="topnav__center">
-                {navItems}
+                {navItems.map((child, index) => (
+                    <li key={index}
+                        className={`topnav-item ${activeItem === index ? 'topnav-item--active' : ''}`}
+                        onClick={() => HandleNavItemClick(index)}>
+                        {child}
+                    </li>
+                ))}
             </div>
 
             <div className="topnav__right">
@@ -48,13 +59,12 @@ export default function TopNav({ theme = Theme.Lumos, children }: TopNavProps) {
 }
 
 
+
 export const NavItem = ({ children }: { children: ReactNode }) => {
     return (
-        <li className="topnav-item">
-
+        <>
             {children}
-
-        </li>
+        </>
     );
 }
 
