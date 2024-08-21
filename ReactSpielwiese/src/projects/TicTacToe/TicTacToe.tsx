@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './css/tictactoe.css'
 import Field from './components/Field';
 import { Game, Player } from './Models/Enums';
-import FadeIn from '../../components/FadeIn';
+import FadeIn from '../../components/FadeIn/FadeIn';
 
 // Modul-Scope
 let _patternPlayer1: Array<number> = [];

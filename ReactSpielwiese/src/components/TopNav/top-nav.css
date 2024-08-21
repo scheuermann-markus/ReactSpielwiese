@@ -1,0 +1,57 @@
+:root {
+    --text-color--nox: #B6B4B8;
+    --text-hover-color--nox: white;
+}
+
+.topnav {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 500;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+    .topnav a {
+        text-decoration: none;
+    }
+
+.topnav--lumos {
+    color: #212529;
+}
+
+    .topnav--lumos a {
+        color: #212529;
+    }
+
+.topnav--nox {
+    color: var(--text-color--nox);
+}
+
+    .topnav--nox a {
+        color: var(--text-color--nox);
+    }
+
+.topnav__left {
+    flex: 1;
+    text-align: left;
+}
+
+.topnav__center {
+    flex: 3;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.topnav__right {
+    flex: 1;
+    text-align: right;
+}
+
+
+
+
+
+.topnav-item::marker {
+    content: "";
+}

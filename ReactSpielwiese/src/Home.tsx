@@ -3,7 +3,7 @@ import Header from './layout/Header'
 import './home.css'
 import { Link } from 'react-router-dom';
 import Footer from './layout/Footer';
-import FadeIn from './components/FadeIn';
+import FadeIn from './components/FadeIn/FadeIn';
 
 function Home() {
 
