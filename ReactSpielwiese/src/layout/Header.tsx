@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import TopNav, { NavBrand, NavItem, NavSocial, Theme } from "../components/TopNav/TopNav";
+import TopNav, { NaDropDownItem, NavBrand, NavDropDown, NavDropDownItem, NavItem, NavSocial, Theme } from "../components/TopNav/TopNav";
 
 function Header() {
     return (
@@ -29,6 +29,18 @@ function Header() {
                     <NavItem>
                         <Link to="/tictactoe">TicTacToe</Link>
                     </NavItem>
+
+                    <NavDropDown title="DropDown" >
+                        <NavDropDownItem>
+                            Item 1
+                        </NavDropDownItem>
+                        <NavDropDownItem>
+                            Item 2
+                        </NavDropDownItem>
+                        <NavDropDownItem>
+                            Item 3
+                        </NavDropDownItem>
+                    </NavDropDown>
 
                 </TopNav>
             </div>

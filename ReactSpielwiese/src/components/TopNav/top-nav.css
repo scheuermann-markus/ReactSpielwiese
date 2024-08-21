@@ -56,6 +56,7 @@
     font-size: 1.3rem;
 }
 
+.topnav-item--active,
 .topnav-item--active a {
     color: var(--text-hover-color--nox);
 }
@@ -63,3 +64,72 @@
 .topnav-item::marker {
     content: "";
 }
+
+.topnav-dropdown {
+    position: relative;
+}
+
+.topnav-dropdown__titel {
+    position: relative;
+    z-index: 2;
+    transition: color 0.1s ease;
+}
+
+    .topnav-dropdown__titel:hover {
+        color: var(--text-hover-color--nox);
+        cursor: pointer;
+    }
+
+    /* Unsichtbarer Hover-Bereich unterhalb des Titels */
+    .topnav-dropdown__titel::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 100%;
+        width: 100%;
+        height: 1rem;
+    }
+
+.topnav-item.topnav-dropdown:hover .topnav-dropdown__container {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.topnav-dropdown__container {
+    position: absolute;
+    top: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(-0.5rem);
+    min-width: 180px;
+    height: fit-content;
+    background: white;
+    padding: 1rem;
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Hover-Effekte für den gesamten Dropdown-Bereich */
+.topnav-item.topnav-dropdown:hover .topnav-dropdown__titel,
+.topnav-item.topnav-dropdown:hover .topnav-dropdown__container {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.topnav__drop-down-item {
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.25rem;
+    transition: 0.1s ease;
+}
+
+    .topnav__drop-down-item:hover {
+        background-color: #dedede;
+        cursor: pointer;
+        transition: 0.1s ease;
+    }

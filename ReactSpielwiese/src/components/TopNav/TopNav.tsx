@@ -24,7 +24,7 @@ export default function TopNav({ theme = Theme.Lumos, children }: TopNavProps) {
 
     const navItems = Children.toArray(children).filter(child => {
         return (
-            isValidElement(child) && child.type === NavItem
+            isValidElement(child) && (child.type === NavItem || child.type === NavDropDown)
         );
     });
 
@@ -62,9 +62,9 @@ export default function TopNav({ theme = Theme.Lumos, children }: TopNavProps) {
 
 export const NavItem = ({ children }: { children: ReactNode }) => {
     return (
-        <>
+        <div>
             {children}
-        </>
+        </div>
     );
 }
 
@@ -81,5 +81,31 @@ export const NavSocial = ({ children }: { children: ReactNode }) => {
         <>
             {children}
         </>
+    );
+}
+
+interface NavDropDownProps {
+    title: string;
+    children: ReactNode;
+}
+
+export const NavDropDown = ({ title, children }: NavDropDownProps) => {
+    return (
+        <li className="topnav-item topnav-dropdown">
+            <div className="topnav-dropdown__titel">
+                {title}
+            </div>
+            <div className="topnav-dropdown__container">
+                {children}
+            </div>
+        </li>
+    );
+}
+
+export const NavDropDownItem = ({ children }: { children: ReactNode }) => {
+    return (
+        <div className="topnav__drop-down-item">
+            {children}
+        </div>
     );
 }
