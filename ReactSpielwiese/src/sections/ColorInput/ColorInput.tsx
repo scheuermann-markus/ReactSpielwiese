@@ -11,7 +11,7 @@ export default function ColorInput() {
 
     return (
         <>
-            <div className="_grid _grid_template-columns-1-1">
+            <div id="color-input" className="_grid _grid_template-columns-1-1">
                 <div>
                     <h2 className="_text-align_center color-display__heading">Color Input</h2>
                     <UserColorInput changeColor={ChangeColor} />

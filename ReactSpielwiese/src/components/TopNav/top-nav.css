@@ -80,7 +80,6 @@
         cursor: pointer;
     }
 
-    /* Unsichtbarer Hover-Bereich unterhalb des Titels */
     .topnav-dropdown__titel::after {
         content: '';
         position: absolute;
@@ -115,7 +114,6 @@
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* Hover-Effekte für den gesamten Dropdown-Bereich */
 .topnav-item.topnav-dropdown:hover .topnav-dropdown__titel,
 .topnav-item.topnav-dropdown:hover .topnav-dropdown__container {
     opacity: 1;

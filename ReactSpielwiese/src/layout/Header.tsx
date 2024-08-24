@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import TopNav, { NaDropDownItem, NavBrand, NavDropDown, NavDropDownItem, NavItem, NavSocial, Theme } from "../components/TopNav/TopNav";
+import TopNav, { NavBrand, NavDropDown, NavDropDownItem, NavItem, NavSocial, Theme } from "../components/TopNav/TopNav";
+import { ScrollSectionIntoView } from "../functions/ScrollSectionIntoView";
 
-function Header() {
+export default function Header() {
     return (
         <>
             <div style={{ width: "100%", padding: "1rem 10rem", position: "absolute" }} >
@@ -30,9 +31,15 @@ function Header() {
                         <Link to="/tictactoe">TicTacToe</Link>
                     </NavItem>
 
-                    <NavDropDown title="DropDown" >
+                    <NavDropDown title="Sections" >
                         <NavDropDownItem>
-                            Item 1
+                            <a onClick={(e) => {
+                                e.preventDefault();
+                                ScrollSectionIntoView("color-input");
+                            }}
+                            >
+                                Color Input
+                            </a>
                         </NavDropDownItem>
                         <NavDropDownItem>
                             Item 2
@@ -41,11 +48,8 @@ function Header() {
                             Item 3
                         </NavDropDownItem>
                     </NavDropDown>
-
                 </TopNav>
             </div>
         </>
     );
 }
-
-export default Header;
