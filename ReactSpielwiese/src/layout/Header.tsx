@@ -24,13 +24,6 @@ export default function Header() {
                             </div>
                         </Link>
                     </NavItem>
-                    <NavItem>
-                        <Link to="/simongame">Simon Game</Link>
-                    </NavItem>
-                    <NavItem>
-                        <Link to="/tictactoe">TicTacToe</Link>
-                    </NavItem>
-
                     <NavDropDown title="Sections" >
                         <NavDropDownItem>
                             <a onClick={(e) => {
@@ -41,13 +34,13 @@ export default function Header() {
                                 Color Input
                             </a>
                         </NavDropDownItem>
-                        <NavDropDownItem>
-                            Item 2
-                        </NavDropDownItem>
-                        <NavDropDownItem>
-                            Item 3
-                        </NavDropDownItem>
                     </NavDropDown>
+                    <NavItem>
+                        <Link to="/simongame">Simon Game</Link>
+                    </NavItem>
+                    <NavItem>
+                        <Link to="/tictactoe">TicTacToe</Link>
+                    </NavItem>
                 </TopNav>
             </div>
         </>

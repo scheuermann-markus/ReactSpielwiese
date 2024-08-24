@@ -44,7 +44,11 @@ export default function TopNav({ theme = Theme.Lumos, children }: TopNavProps) {
                 {navItems.map((child, index) => (
                     <li key={index}
                         className={`topnav-item ${activeItem === index ? 'topnav-item--active' : ''}`}
-                        onClick={() => HandleNavItemClick(index)}>
+                        onClick={() => {
+                            if (isValidElement(child) && child.type === NavItem) {
+                                HandleNavItemClick(index);
+                            }
+                        }}>
                         {child}
                     </li>
                 ))}
